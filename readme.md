@@ -17,6 +17,6 @@ The DAG is scheduled to run daily, and consists of the following tasks:
 The slack.py DAG sends a message to a specified Slack channel using a Slack webhook. 
 The DAG is scheduled to run daily, and consists of the following tasks:
 
-# dummy_task: a task that raises an exception randomly
+* dummy_task: a task that raises an exception randomly
 * success_task: sends a success message to a Slack channel if all tasks succeed
 * fail_task: sends a failure message to a Slack channel if any task fails
