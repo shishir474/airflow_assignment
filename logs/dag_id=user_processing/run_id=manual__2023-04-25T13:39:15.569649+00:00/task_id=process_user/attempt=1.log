@@ -1,0 +1,24 @@
+[2023-04-25T13:39:20.340+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.process_user manual__2023-04-25T13:39:15.569649+00:00 [queued]>
+[2023-04-25T13:39:20.345+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.process_user manual__2023-04-25T13:39:15.569649+00:00 [queued]>
+[2023-04-25T13:39:20.346+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-25T13:39:20.346+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2023-04-25T13:39:20.347+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-25T13:39:20.354+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-04-25 13:39:15.569649+00:00
+[2023-04-25T13:39:20.359+0000] {standard_task_runner.py:55} INFO - Started process 14475 to run task
+[2023-04-25T13:39:20.362+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'process_user', 'manual__2023-04-25T13:39:15.569649+00:00', '--job-id', '97', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmprp00_4_2']
+[2023-04-25T13:39:20.364+0000] {standard_task_runner.py:83} INFO - Job 97: Subtask process_user
+[2023-04-25T13:39:20.412+0000] {task_command.py:376} INFO - Running <TaskInstance: user_processing.process_user manual__2023-04-25T13:39:15.569649+00:00 [running]> on host bebb68623a17
+[2023-04-25T13:39:20.457+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-25T13:39:15.569649+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-25T13:39:15.569649+00:00
+[2023-04-25T13:39:20.467+0000] {logging_mixin.py:120} INFO - hi {'results': [{'gender': 'female', 'name': {'title': 'Mrs', 'first': 'Allison', 'last': 'Mccoy'}, 'location': {'street': {'number': 5221, 'name': 'Samaritan Dr'}, 'city': 'Plano', 'state': 'Nebraska', 'country': 'United States', 'postcode': 40843, 'coordinates': {'latitude': '85.7694', 'longitude': '83.4171'}, 'timezone': {'offset': '+8:00', 'description': 'Beijing, Perth, Singapore, Hong Kong'}}, 'email': 'allison.mccoy@example.com', 'login': {'uuid': '095d8ba8-5555-4add-b964-72ed98d4e03c', 'username': 'goldenkoala252', 'password': 'gggggg', 'salt': 'uutPYZ0J', 'md5': '1b6dc74b106aed08e7b5449ff3d3fab7', 'sha1': '61f5fc9b92127f6724dbff4c7177f551f236fe1b', 'sha256': '064cc98c8b649f9bdcba609067f5a76062481a4af4b43333517b2a1713b5d694'}, 'dob': {'date': '1996-05-01T06:11:03.406Z', 'age': 26}, 'registered': {'date': '2019-10-30T16:33:54.181Z', 'age': 3}, 'phone': '(682) 902-7556', 'cell': '(438) 359-1665', 'id': {'name': 'SSN', 'value': '701-64-5223'}, 'picture': {'large': 'https://randomuser.me/api/portraits/women/56.jpg', 'medium': 'https://randomuser.me/api/portraits/med/women/56.jpg', 'thumbnail': 'https://randomuser.me/api/portraits/thumb/women/56.jpg'}, 'nat': 'US'}], 'info': {'seed': '257193bc32da0f07', 'results': 1, 'page': 1, 'version': '1.4'}}
+[2023-04-25T13:39:20.467+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-04-25T13:39:20.475+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=user_processing, task_id=process_user, execution_date=20230425T133915, start_date=20230425T133920, end_date=20230425T133920
+[2023-04-25T13:39:20.494+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-04-25T13:39:20.508+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

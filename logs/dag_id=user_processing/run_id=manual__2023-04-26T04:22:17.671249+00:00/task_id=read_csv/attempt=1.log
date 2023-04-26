@@ -1,0 +1,51 @@
+[2023-04-26T04:22:26.641+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.read_csv manual__2023-04-26T04:22:17.671249+00:00 [queued]>
+[2023-04-26T04:22:26.647+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.read_csv manual__2023-04-26T04:22:17.671249+00:00 [queued]>
+[2023-04-26T04:22:26.648+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T04:22:26.648+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2023-04-26T04:22:26.649+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T04:22:26.656+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): read_csv> on 2023-04-26 04:22:17.671249+00:00
+[2023-04-26T04:22:26.661+0000] {standard_task_runner.py:55} INFO - Started process 21650 to run task
+[2023-04-26T04:22:26.665+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'read_csv', 'manual__2023-04-26T04:22:17.671249+00:00', '--job-id', '144', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmp_vbz4i16']
+[2023-04-26T04:22:26.667+0000] {standard_task_runner.py:83} INFO - Job 144: Subtask read_csv
+[2023-04-26T04:22:26.718+0000] {task_command.py:376} INFO - Running <TaskInstance: user_processing.read_csv manual__2023-04-26T04:22:17.671249+00:00 [running]> on host bebb68623a17
+[2023-04-26T04:22:26.764+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=read_csv
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-26T04:22:17.671249+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-26T04:22:17.671249+00:00
+[2023-04-26T04:22:26.771+0000] {logging_mixin.py:120} INFO - Empty DataFrame
+Columns: [Angie, Davies, Ireland, angie.davies@example.com, smallwolf618, madness]
+Index: []
+[2023-04-26T04:22:26.772+0000] {python.py:177} INFO - Done. Returned value was: Empty DataFrame
+Columns: [Angie, Davies, Ireland, angie.davies@example.com, smallwolf618, madness]
+Index: []
+[2023-04-26T04:22:26.779+0000] {xcom.py:600} ERROR - Could not serialize the XCom value into JSON. If you are using pickle instead of JSON for XCom, then you need to enable pickle support for XCom in your *** config.
+[2023-04-26T04:22:26.780+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2385, in xcom_push
+    session=session,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/xcom.py", line 212, in set
+    map_index=map_index,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/xcom.py", line 597, in serialize_value
+    return json.dumps(value).encode('UTF-8')
+  File "/usr/local/lib/python3.7/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type DataFrame is not JSON serializable
+[2023-04-26T04:22:26.790+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=user_processing, task_id=read_csv, execution_date=20230426T042217, start_date=20230426T042226, end_date=20230426T042226
+[2023-04-26T04:22:26.796+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 144 for task read_csv (Object of type DataFrame is not JSON serializable; 21650)
+[2023-04-26T04:22:26.837+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-04-26T04:22:26.852+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

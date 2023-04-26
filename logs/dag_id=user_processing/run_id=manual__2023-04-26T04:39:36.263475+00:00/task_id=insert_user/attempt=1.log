@@ -1,0 +1,42 @@
+[2023-04-26T04:39:44.203+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.insert_user manual__2023-04-26T04:39:36.263475+00:00 [queued]>
+[2023-04-26T04:39:44.209+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.insert_user manual__2023-04-26T04:39:36.263475+00:00 [queued]>
+[2023-04-26T04:39:44.209+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T04:39:44.210+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2023-04-26T04:39:44.210+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T04:39:44.217+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): insert_user> on 2023-04-26 04:39:36.263475+00:00
+[2023-04-26T04:39:44.223+0000] {standard_task_runner.py:55} INFO - Started process 22541 to run task
+[2023-04-26T04:39:44.226+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'insert_user', 'manual__2023-04-26T04:39:36.263475+00:00', '--job-id', '154', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmpmaulmlcz']
+[2023-04-26T04:39:44.228+0000] {standard_task_runner.py:83} INFO - Job 154: Subtask insert_user
+[2023-04-26T04:39:44.278+0000] {task_command.py:376} INFO - Running <TaskInstance: user_processing.insert_user manual__2023-04-26T04:39:36.263475+00:00 [running]> on host bebb68623a17
+[2023-04-26T04:39:44.324+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=insert_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-26T04:39:36.263475+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-26T04:39:36.263475+00:00
+[2023-04-26T04:39:44.333+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-04-26T04:39:44.337+0000] {sql.py:315} INFO - Running statement: 
+            COPY users(first_name, last_name, country, username, password, email)
+            FROM '/tmp/processed_user.csv'
+            WITH (FORMAT CSV, HEADER FALSE);
+        , parameters: None
+[2023-04-26T04:39:44.346+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 94, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 295, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 320, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedFile: could not open file "/tmp/processed_user.csv" for reading: No such file or directory
+HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+
+[2023-04-26T04:39:44.353+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=user_processing, task_id=insert_user, execution_date=20230426T043936, start_date=20230426T043944, end_date=20230426T043944
+[2023-04-26T04:39:44.360+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 154 for task insert_user (could not open file "/tmp/processed_user.csv" for reading: No such file or directory
+HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+; 22541)
+[2023-04-26T04:39:44.400+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-04-26T04:39:44.414+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

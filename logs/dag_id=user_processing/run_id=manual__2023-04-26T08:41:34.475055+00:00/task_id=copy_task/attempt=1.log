@@ -1,0 +1,34 @@
+[2023-04-26T08:41:41.581+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.copy_task manual__2023-04-26T08:41:34.475055+00:00 [queued]>
+[2023-04-26T08:41:41.587+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.copy_task manual__2023-04-26T08:41:34.475055+00:00 [queued]>
+[2023-04-26T08:41:41.588+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T08:41:41.588+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2023-04-26T08:41:41.588+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T08:41:41.596+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): copy_task> on 2023-04-26 08:41:34.475055+00:00
+[2023-04-26T08:41:41.600+0000] {standard_task_runner.py:55} INFO - Started process 600 to run task
+[2023-04-26T08:41:41.604+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'copy_task', 'manual__2023-04-26T08:41:34.475055+00:00', '--job-id', '207', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmpsscuu1tg']
+[2023-04-26T08:41:41.606+0000] {standard_task_runner.py:83} INFO - Job 207: Subtask copy_task
+[2023-04-26T08:41:41.659+0000] {task_command.py:376} INFO - Running <TaskInstance: user_processing.copy_task manual__2023-04-26T08:41:34.475055+00:00 [running]> on host c452347a64f2
+[2023-04-26T08:41:41.713+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=copy_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-26T08:41:34.475055+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-26T08:41:34.475055+00:00
+[2023-04-26T08:41:41.714+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-04-26T08:41:41.715+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'PGPASSWORD=postgres psql -U *** -h postgres -p 5432 -d *** -c "COPY users(first_name, last_name,country, username, password, email) FROM "/opt/***/csv_files/user_processed.csv" delimiter "," CSV"']
+[2023-04-26T08:41:41.732+0000] {subprocess.py:86} INFO - Output:
+[2023-04-26T08:41:41.775+0000] {subprocess.py:93} INFO - psql: error: connection to server at "postgres" (172.19.0.3), port 5432 failed: FATAL:  password authentication failed for user "***"
+[2023-04-26T08:41:41.777+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2023-04-26T08:41:41.789+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2023-04-26T08:41:41.792+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=user_processing, task_id=copy_task, execution_date=20230426T084134, start_date=20230426T084141, end_date=20230426T084141
+[2023-04-26T08:41:41.802+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 207 for task copy_task (Bash command failed. The command returned a non-zero exit code 2.; 600)
+[2023-04-26T08:41:41.818+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-04-26T08:41:41.834+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

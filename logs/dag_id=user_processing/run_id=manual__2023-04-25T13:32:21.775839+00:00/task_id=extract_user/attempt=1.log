@@ -1,0 +1,26 @@
+[2023-04-25T13:32:23.622+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.extract_user manual__2023-04-25T13:32:21.775839+00:00 [queued]>
+[2023-04-25T13:32:23.650+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.extract_user manual__2023-04-25T13:32:21.775839+00:00 [queued]>
+[2023-04-25T13:32:23.650+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-25T13:32:23.652+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2023-04-25T13:32:23.652+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-25T13:32:23.669+0000] {taskinstance.py:1383} INFO - Executing <Task(SimpleHttpOperator): extract_user> on 2023-04-25 13:32:21.775839+00:00
+[2023-04-25T13:32:23.678+0000] {standard_task_runner.py:55} INFO - Started process 14078 to run task
+[2023-04-25T13:32:23.685+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'extract_user', 'manual__2023-04-25T13:32:21.775839+00:00', '--job-id', '78', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmppblsb9_y']
+[2023-04-25T13:32:23.688+0000] {standard_task_runner.py:83} INFO - Job 78: Subtask extract_user
+[2023-04-25T13:32:23.788+0000] {task_command.py:376} INFO - Running <TaskInstance: user_processing.extract_user manual__2023-04-25T13:32:21.775839+00:00 [running]> on host bebb68623a17
+[2023-04-25T13:32:23.900+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=extract_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-25T13:32:21.775839+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-25T13:32:21.775839+00:00
+[2023-04-25T13:32:23.902+0000] {http.py:121} INFO - Calling HTTP method
+[2023-04-25T13:32:23.926+0000] {base.py:71} INFO - Using connection ID 'user_api' for task execution.
+[2023-04-25T13:32:23.928+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/
+[2023-04-25T13:32:24.269+0000] {http.py:125} INFO - {"results":[{"gender":"female","name":{"title":"Miss","first":"Viroslava","last":"Kuzmich"},"location":{"street":{"number":6696,"name":"Oleni Kovalchuk"},"city":"Slov'yansk","state":"Vinnicka","country":"Ukraine","postcode":80866,"coordinates":{"latitude":"73.3309","longitude":"139.7510"},"timezone":{"offset":"+7:00","description":"Bangkok, Hanoi, Jakarta"}},"email":"viroslava.kuzmich@example.com","login":{"uuid":"273da6c0-cece-40ff-9f13-ac273c632cf4","username":"brownostrich800","password":"andrew1","salt":"6X5a87e9","md5":"cd234aecb37e855d22954fbf0fc7f79a","sha1":"7b635380db89a8179a4920764570df1248819aa8","sha256":"d9c4dd0282e8decd7f0da3631764d5be4472368900e6cdb12aeee5a9215d9bc3"},"dob":{"date":"1952-06-23T12:50:04.042Z","age":70},"registered":{"date":"2012-02-26T07:19:00.395Z","age":11},"phone":"(098) K21-7920","cell":"(068) Y43-6597","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/18.jpg","medium":"https://randomuser.me/api/portraits/med/women/18.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/18.jpg"},"nat":"UA"}],"info":{"seed":"49c08d30c2bd5302","results":1,"page":1,"version":"1.4"}}
+[2023-04-25T13:32:24.308+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=user_processing, task_id=extract_user, execution_date=20230425T133221, start_date=20230425T133223, end_date=20230425T133224
+[2023-04-25T13:32:24.352+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-04-25T13:32:24.384+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

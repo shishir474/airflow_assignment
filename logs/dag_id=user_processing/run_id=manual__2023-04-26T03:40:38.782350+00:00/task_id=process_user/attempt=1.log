@@ -1,0 +1,24 @@
+[2023-04-26T03:40:44.428+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.process_user manual__2023-04-26T03:40:38.782350+00:00 [queued]>
+[2023-04-26T03:40:44.434+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: user_processing.process_user manual__2023-04-26T03:40:38.782350+00:00 [queued]>
+[2023-04-26T03:40:44.435+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T03:40:44.435+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2023-04-26T03:40:44.435+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T03:40:44.443+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-04-26 03:40:38.782350+00:00
+[2023-04-26T03:40:44.448+0000] {standard_task_runner.py:55} INFO - Started process 19457 to run task
+[2023-04-26T03:40:44.451+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'process_user', 'manual__2023-04-26T03:40:38.782350+00:00', '--job-id', '113', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmp1r8a1f03']
+[2023-04-26T03:40:44.453+0000] {standard_task_runner.py:83} INFO - Job 113: Subtask process_user
+[2023-04-26T03:40:44.503+0000] {task_command.py:376} INFO - Running <TaskInstance: user_processing.process_user manual__2023-04-26T03:40:38.782350+00:00 [running]> on host bebb68623a17
+[2023-04-26T03:40:44.548+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-26T03:40:38.782350+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-26T03:40:38.782350+00:00
+[2023-04-26T03:40:44.557+0000] {logging_mixin.py:120} INFO - {'results': [{'gender': 'female', 'name': {'title': 'Miss', 'first': 'Madhura', 'last': 'Manjunath'}, 'location': {'street': {'number': 651, 'name': 'S.A Rd'}, 'city': 'Coimbatore', 'state': 'Puducherry', 'country': 'India', 'postcode': 92437, 'coordinates': {'latitude': '9.1420', 'longitude': '43.9412'}, 'timezone': {'offset': '-5:00', 'description': 'Eastern Time (US & Canada), Bogota, Lima'}}, 'email': 'madhura.manjunath@example.com', 'login': {'uuid': '57031c3c-e25f-4fba-8137-4154c4548c89', 'username': 'heavyfish164', 'password': 'colleen', 'salt': 'jv78TOIg', 'md5': '2fee38e57fab88fdf89411561bdb9082', 'sha1': 'a92ba6a6b7e561d66eddf51ca41466ee217dae56', 'sha256': '0c03d4f4bd78e58ae70d424e5f560f835980ab77e3ba703421cd835bac138581'}, 'dob': {'date': '1964-10-05T22:03:41.612Z', 'age': 58}, 'registered': {'date': '2007-11-24T05:41:34.638Z', 'age': 15}, 'phone': '7325756379', 'cell': '7832750986', 'id': {'name': 'UIDAI', 'value': '093819144007'}, 'picture': {'large': 'https://randomuser.me/api/portraits/women/73.jpg', 'medium': 'https://randomuser.me/api/portraits/med/women/73.jpg', 'thumbnail': 'https://randomuser.me/api/portraits/thumb/women/73.jpg'}, 'nat': 'IN'}], 'info': {'seed': '3ee16270771febeb', 'results': 1, 'page': 1, 'version': '1.4'}}
+[2023-04-26T03:40:44.558+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-04-26T03:40:44.566+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=user_processing, task_id=process_user, execution_date=20230426T034038, start_date=20230426T034044, end_date=20230426T034044
+[2023-04-26T03:40:44.583+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-04-26T03:40:44.597+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

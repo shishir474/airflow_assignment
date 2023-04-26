@@ -1,0 +1,51 @@
+[2023-04-26T10:39:53.702+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dag2.send_email_task manual__2023-04-26T10:39:51.607112+00:00 [queued]>
+[2023-04-26T10:39:53.716+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dag2.send_email_task manual__2023-04-26T10:39:51.607112+00:00 [queued]>
+[2023-04-26T10:39:53.717+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T10:39:53.718+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2023-04-26T10:39:53.720+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T10:39:53.732+0000] {taskinstance.py:1383} INFO - Executing <Task(EmailOperator): send_email_task> on 2023-04-26 10:39:51.607112+00:00
+[2023-04-26T10:39:53.738+0000] {standard_task_runner.py:55} INFO - Started process 6281 to run task
+[2023-04-26T10:39:53.742+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dag2', 'send_email_task', 'manual__2023-04-26T10:39:51.607112+00:00', '--job-id', '257', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmpszco2fl_']
+[2023-04-26T10:39:53.743+0000] {standard_task_runner.py:83} INFO - Job 257: Subtask send_email_task
+[2023-04-26T10:39:53.799+0000] {task_command.py:376} INFO - Running <TaskInstance: dag2.send_email_task manual__2023-04-26T10:39:51.607112+00:00 [running]> on host c452347a64f2
+[2023-04-26T10:39:53.846+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag2
+AIRFLOW_CTX_TASK_ID=send_email_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-26T10:39:51.607112+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-26T10:39:51.607112+00:00
+[2023-04-26T10:39:53.855+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/email.py:120: RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2023-04-26T10:39:53.856+0000] {configuration.py:569} WARNING - section/key [smtp/smtp_user] not found in config
+[2023-04-26T10:39:53.857+0000] {email.py:229} INFO - Email alerting: attempt 1
+[2023-04-26T10:39:53.858+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/email.py", line 87, in execute
+    custom_headers=self.custom_headers,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 72, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 120, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 231, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 265, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+[2023-04-26T10:39:53.866+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=dag2, task_id=send_email_task, execution_date=20230426T103951, start_date=20230426T103953, end_date=20230426T103953
+[2023-04-26T10:39:53.873+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 257 for task send_email_task ([Errno 99] Cannot assign requested address; 6281)
+[2023-04-26T10:39:53.915+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-04-26T10:39:53.930+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

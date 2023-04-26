@@ -1,0 +1,26 @@
+[2023-04-26T11:42:01.672+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: slack_dag.fail_task scheduled__2023-04-25T00:00:00+00:00 [queued]>
+[2023-04-26T11:42:01.679+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: slack_dag.fail_task scheduled__2023-04-25T00:00:00+00:00 [queued]>
+[2023-04-26T11:42:01.680+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T11:42:01.680+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2023-04-26T11:42:01.681+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-26T11:42:01.690+0000] {taskinstance.py:1383} INFO - Executing <Task(SlackWebhookOperator): fail_task> on 2023-04-25 00:00:00+00:00
+[2023-04-26T11:42:01.695+0000] {standard_task_runner.py:55} INFO - Started process 2625 to run task
+[2023-04-26T11:42:01.699+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'slack_dag', 'fail_task', 'scheduled__2023-04-25T00:00:00+00:00', '--job-id', '281', '--raw', '--subdir', 'DAGS_FOLDER/dag3.py', '--cfg-path', '/tmp/tmpyakc990o']
+[2023-04-26T11:42:01.700+0000] {standard_task_runner.py:83} INFO - Job 281: Subtask fail_task
+[2023-04-26T11:42:01.764+0000] {task_command.py:376} INFO - Running <TaskInstance: slack_dag.fail_task scheduled__2023-04-25T00:00:00+00:00 [running]> on host 641cb7472cb1
+[2023-04-26T11:42:01.827+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=slack_dag
+AIRFLOW_CTX_TASK_ID=fail_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-25T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-04-25T00:00:00+00:00
+[2023-04-26T11:42:01.829+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/providers/slack/operators/slack_webhook.py:173: UserWarning: Found unexpected keyword-argument(s) 'link_names' in `send` method. This argument(s) have no effect.
+  link_names=self.link_names,
+
+[2023-04-26T11:42:01.837+0000] {base.py:71} INFO - Using connection ID 'slack' for task execution.
+[2023-04-26T11:42:02.555+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=slack_dag, task_id=fail_task, execution_date=20230425T000000, start_date=20230426T114201, end_date=20230426T114202
+[2023-04-26T11:42:02.608+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-04-26T11:42:02.629+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
