@@ -10,8 +10,8 @@ select_data: selects all data from the users table
 The email.py DAG sends an email to a specified recipient using the default SMTP connection. 
 The DAG is scheduled to run daily, and consists of the following tasks:
 
-#* dummy_task: a dummy task that does nothing
-#* email_task: sends an email with a subject and some content to a specified recipient
+* dummy_task: a dummy task that does nothing
+* email_task: sends an email with a subject and some content to a specified recipient
 
 # Slack DAG - slack.py
 The slack.py DAG sends a message to a specified Slack channel using a Slack webhook. 
