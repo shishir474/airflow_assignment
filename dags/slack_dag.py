@@ -1,38 +1,42 @@
 from airflow import DAG
 from datetime import datetime
+
 from airflow.operators.python import PythonOperator
 from airflow.providers.slack.operators.slack_webhook import SlackWebhookOperator
 
-# Define a Python function to be called by the PythonOperator task
+# Define a function that will be used as a PythonOperator to execute a dummy task
 def dummyConditionalTask():
     import random
+    # Generate a random integer between 1 and 100
     x=random.randint(1,100)
+    # Raise an exception if the generated integer is greater than 50
     if x>50:
         raise Exception()
+    
 
-# Create a DAG with a specified DAG ID, start date, schedule interval, and catch-up option
-with DAG(dag_id='slack_dag',start_date=datetime(2023,4,17),schedule_interval='@daily',catchup=False) as dag:
-    # Task to call the dummyConditionalTask function using PythonOperator
+with DAG(dag_id='task_on_slack_integration',start_date=datetime(2023,4,17),schedule_interval='@daily',catchup=False) as dag:
+    # Define a PythonOperator that will execute the dummy task
     dummy_task=PythonOperator(
         task_id='dummy_task',
-        python_callable=dummyConditionalTask  # Python function to be called
+        python_callable=dummyConditionalTask
     )
 
-    # Task to send a success message to Slack using the SlackWebhookOperator
-    success_task=SlackWebhookOperator(
+    # Define a SlackWebhookOperator that will send a success message to a Slack channel
+    slack_integration_success=SlackWebhookOperator(
         task_id='success_task',
-        http_conn_id='slack',  # Specify the Slack connection ID
-        message=':smile: Task Successfully Run',  # Specify the success message
-        trigger_rule='all_success'  # Specify the trigger rule for success
+        http_conn_id='slack',
+        message=':smile: Task Successfully Run',
+        trigger_rule='all_success'
     )
 
-    # Task to send a failure message to Slack using the SlackWebhookOperator
-    fail_task=SlackWebhookOperator(
+    # Define a SlackWebhookOperator that will send a failure message to a Slack channel
+    slack_integration_fail=SlackWebhookOperator(
         task_id='fail_task',
-        http_conn_id='slack',  # Specify the Slack connection ID
-        message=':red_circle: Task Failed',  # Specify the failure message
-        trigger_rule='all_failed'  # Specify the trigger rule for failure
+        http_conn_id='slack',
+        message=':red_circle: Task Failed',
+        trigger_rule='all_failed'
     )
 
-# Set the task dependencies using bitshift operator
-dummy_task >> [success_task,fail_task]
+    # Set up dependencies between the tasks
+    dummy_task >> [slack_integration_success, slack_integration_fail]
+
