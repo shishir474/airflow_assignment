@@ -19,8 +19,6 @@ The DAG is scheduled to run daily, and consists of the following tasks:
 * email_task: sends an email with a subject and some content to a specified recipient
 
 <img width="1440" alt="Screenshot 2023-06-08 at 5 11 39 PM" src="https://github.com/shishir474/airflow_assignment/assets/57223710/b3c95ca1-32f9-4225-ad09-d6f6d02b8713">
-![Uploading WhatsApp Image 2023-06-08 at 17.14.31.jpeg…]()
-![Uploading WhatsApp Image 2023-06-08 at 17.14.31.jpeg…]()
 
 
 # Slack DAG - slack.py
