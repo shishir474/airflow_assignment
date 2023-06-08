@@ -18,7 +18,7 @@ The dummy_task has been implemented to consistently pass, while the success_fail
 Finally, the slack_alert_task has been incorporated to send a message to Slack, providing information about the outcome of the success_failure_task.
 
 
-# Ayush review
+# Ayush's review
 Task 1
 In this task, he successfully created a DAG named "table_dag" that creates a "users" table in a Postgres database, inserts data into the table, and selects 
 and displays the data. 
